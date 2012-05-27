@@ -3,6 +3,14 @@
 **The Unobtrusive in Place editing solution**
 
 
+##Info about this Fork
+https://github.com/iox/best_in_place
+
+I forked this great gem to integrate BootStrap Datepicker (http://www.eyecon.ro/bootstrap-datepicker/) with best in place. This way I don't have to load Jquery UI and I can keep the bootstrap look and feel. Maybe someone else will find it useful :). To use this fork, add this to you Gemfile:
+
+    gem 'best_in_place', :git => 'git://github.com/iox/best_in_place.git'
+
+
 ##Description
 
 **Best in Place** is a jQuery based AJAX Inplace-Editor that takes profit of RESTful server-side controllers to allow users to edit stuff with
