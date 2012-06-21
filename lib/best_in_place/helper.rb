@@ -10,7 +10,7 @@ module BestInPlace
         raise ArgumentError, "Can't find helper #{opts[:display_with]}"
       end
 
-      real_object = (object.is_a?(Array) && object.last.class.respond_to?(:model_name)) ? object.last : object
+      real_object = real_object_for object
       opts[:type] ||= :input
       opts[:collection] ||= []
       field = field.to_s
@@ -67,7 +67,7 @@ module BestInPlace
       if condition
         best_in_place(object, field, opts)
       else
-        build_value_for object, field, opts
+        build_value_for real_object_for(object), field, opts
       end
     end
 
@@ -80,8 +80,8 @@ module BestInPlace
         object.send(opts[:display_as]).to_s
 
       elsif opts[:display_with].try(:is_a?, Proc)
+        BestInPlace::DisplayMethods.add_helper_proc(object.class.to_s, field, opts[:display_with])
         opts[:display_with].call(object.send(field))
-
       elsif opts[:display_with]
         BestInPlace::DisplayMethods.add_helper_method(object.class.to_s, field, opts[:display_with], opts[:helper_options])
         if opts[:helper_options]
@@ -102,6 +102,10 @@ module BestInPlace
         gsub("&", "&amp;").
         gsub("'", "&apos;").
         gsub("\n", "&#10;")
+    end
+
+    def real_object_for(object)
+      (object.is_a?(Array) && object.last.class.respond_to?(:model_name)) ? object.last : object
     end
   end
 end
