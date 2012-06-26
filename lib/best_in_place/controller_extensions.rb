@@ -1,7 +1,8 @@
 module BestInPlace
   module ControllerExtensions
     def respond_with_bip(obj)
-      obj.changed? ? respond_bip_error(obj) : respond_bip_ok(obj)
+      #obj.changed? ? respond_bip_error(obj) : respond_bip_ok(obj)
+      obj.errors.empty? ? respond_bip_ok(obj) : respond_bip_error(obj)
     end
 
   private
