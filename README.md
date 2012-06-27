@@ -11,6 +11,11 @@ I forked this great gem to integrate BootStrap Datepicker (http://www.eyecon.ro/
     gem 'best_in_place', :git => 'git://github.com/iox/best_in_place.git'
 
 
+I made a small change to support different date formats. Please use best in place like this to add your date format:
+
+    best_in_place @dummy, :my_date, :type => :date, :data => {:date_format => "dd.mm.yyyy"}
+
+
 ##Description
 
 **Best in Place** is a jQuery based AJAX Inplace-Editor that takes profit of RESTful server-side controllers to allow users to edit stuff with
