@@ -2,6 +2,10 @@
 [![Build Status](https://secure.travis-ci.org/bernat/best_in_place.png)](http://travis-ci.org/bernat/best_in_place)
 **The Unobtrusive in Place editing solution**
 
+## Update February 2013
+Noel Peden has created another fork which is less obstrusive and should work better with Bootstrap Datepicker (or any other datepicker).
+Please read the documentation at https://github.com/straydogstudio/best_in_place.
+
 
 ##Info about this Fork
 https://github.com/iox/best_in_place
@@ -14,6 +18,8 @@ I forked this great gem to integrate BootStrap Datepicker (http://www.eyecon.ro/
 I made a small change to support different date formats. Please use best in place like this to add your date format:
 
     best_in_place @dummy, :my_date, :type => :date, :data => {:date_format => "dd.mm.yyyy"}
+
+
 
 
 ##Description
